@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=@pokemon.name%></title>
+  </head>
+  <body>
+    <img src="<%=@pokemon.img_url.downcase%>"></img>
+    <h3><%= @pokemon.name %>'s details</h3>
+    <p>CP: <%= @pokemon.cp %></p>
+    <p>Type: <%= @pokemon.poke_type %></p>
+    <p><a href="/pokemons">Home</a></p>
+
+    <h4>Edit Pokemon</h4>
+    <form action="/pokemons/<%=@pokemon.id %>" method="post">
+      <input type="hidden" name="_method" value="put">
+
+      <label>Combat Power:</label>
+      <input name="pokemon[cp]">
+
+      <label>Type:</label>
+      <input name="pokemon[poke_type]">
+
+      <input type="submit" value="Update">
+    </form>
+
+    <h4>Delete Pokemon</h4>
+    <form action="/pokemons/<%= @pokemon.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input class="button-delete" type="submit" value="Delete!">
+    </form>
+  </body>
+</html>

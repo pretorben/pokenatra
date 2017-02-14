@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Pokedex</title>
+  </head>
+  <body>
+    <h1>Welcome to my Pokedex!</h1>
+    <h3>Click on a link to see details on my Pokemon.</h3>
+    <% @pokemon.each do |name| %>
+      <a href="/pokemons/<%=name.id%>"><%=name.name%></a><br>
+    <% end %>
+    <h4><a href="add">Add Pokemon</a></h4>
+  </body>
+</html>
